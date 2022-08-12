@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TodosList from "./TodosList";
 import Header from "./Header";
 import InputTodo from "./InputTodo";
-import { Routes, Route, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import About from "../pages/About"
 import NotMatch from "../pages/NotMatch"
