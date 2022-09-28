@@ -1,42 +1,41 @@
-import React, { useState, useEffect } from "react"
-import styles from "./TodoItem.module.css"
+/* eslint-disable */
+import React, { useState, useEffect } from 'react';
+import styles from './TodoItem.module.css';
 
-const TodoItem = props => {
+const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
 
   const handleEditing = () => {
-    setEditing(true)
-  }
+    setEditing(true);
+  };
 
-  const handleUpdateDone = event => {
-    if (event.key === "Enter") {
-      setEditing(false)
+  const handleUpdateDone = (event) => {
+    if (event.key === 'Enter') {
+      setEditing(false);
     }
-  }
+  };
 
   const completedStyle = {
-    fontStyle: "italic",
-    color: "#595959",
+    fontStyle: 'italic',
+    color: '#595959',
     opacity: 0.4,
-    textDecoration: "line-through",
-  }
+    textDecoration: 'line-through',
+  };
 
-  const { completed, id, title } = props.todo
+  const { completed, id, title } = props.todo;
 
-  let viewMode = {}
-  let editMode = {}
+  const viewMode = {};
+  const editMode = {};
 
   if (editing) {
-    viewMode.display = "none"
+    viewMode.display = 'none';
   } else {
-    editMode.display = "none"
+    editMode.display = 'none';
   }
 
-  useEffect(() => {
-    return () => {
-      console.log("Cleaning up...")
-    }
-  }, [])
+  useEffect(() => () => {
+    console.log('Cleaning up...');
+  }, []);
 
   return (
     <li className={styles.item}>
@@ -55,14 +54,13 @@ const TodoItem = props => {
         style={editMode}
         className={styles.textInput}
         value={title}
-        onChange={e => {
-          props.setUpdate(e.target.value, id)
+        onChange={(e) => {
+          props.setUpdate(e.target.value, id);
         }}
         onKeyDown={handleUpdateDone}
       />
     </li>
-  )
+  );
+};
 
-}
-
-export default TodoItem
+export default TodoItem;
